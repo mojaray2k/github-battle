@@ -1,49 +1,37 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-require('./index.css');
+var PropTypes = require('prop-types')
 
 // state
 // lifecycle event
 // UI
 
-class Users extends React.Component {  
+class Badge extends React.Component {  
   render() {
-    let friends = this.props.list.filter(function(user){
-      return user.friend === true
-    });
-    let nonFriends = this.props.list.filter(function(user){
-      return user.friend === false
-    })
     return (
       <div>
-        <h1>Friends</h1>
-        <ul>
-          {friends.map(function(user){
-            return <li key={user.name}>{user.name}</li>
-          })}
-        </ul>
-        
-        <hr />
-        
-        <h1> Non Friends </h1>
-        <ul>
-          {nonFriends.map(function(user){
-            return <li key={user.name}>{user.name}</li>
-          })}
-        </ul>        
+        <img 
+          src={this.props.img} 
+          alt="Avatar"
+          style={{width: 100, height: 100}}
+        />
+        <h1>Name: {this.props.name}</h1>
+        <h3>username: {this.props.username}</h3>
       </div>
     )
   }
 }
 
+Badge.propTypes = {
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
+}
 ReactDOM.render(
-  <Users list={[
-    { name: 'Tyler', friend: true },
-    { name: 'Ryan', friend: true },
-    { name: 'Michael', friend: false },
-    { name: 'Mikenzi', friend: false },
-    { name: 'Jessica', friend: true },
-    { name: 'Dan', friend: false } ]} 
+  <Badge 
+    name='Amen Ra'
+    username='mojaray2k'
+    img='https://avatars3.githubusercontent.com/u/875558?s=460&v=4'
   />,
   document.getElementById('app')
 );
