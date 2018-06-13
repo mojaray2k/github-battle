@@ -4,6 +4,7 @@ var PlayerPreview = require('./PlayerPreview')
 var PropTypes = require('prop-types');
 var queryString = require('query-string');
 var React = require('react');
+var Loading = require('./Loading');
 
 function Profile(props) {
   var info = props.info;
@@ -87,7 +88,7 @@ class Results extends React.Component {
     var loading = this.state.loading;
 
     if(loading === true){
-      return <p>Loading</p>
+      return <Loading />
     }
 
     if(error) {
