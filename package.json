@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "NODE_ENV='production' webpack -p",
+    "deploy": "npm run build && firebase deploy",
+    "firebase-init": "firebase login && firebase init"
   },
   "babel": {
     "presets": [
@@ -23,24 +26,24 @@
   },
   "homepage": "https://github.com/mojaray2k/github-battle#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.11",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.11.1",
-    "webpack-cli": "^3.0.3",
-    "webpack-dev-server": "^3.1.4"
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
+    "babel-preset-react": "^6.23.0",
+    "css-loader": "^0.27.3",
+    "firebase-tools": "^3.5.0",
+    "html-webpack-plugin": "^2.28.0",
+    "style-loader": "^0.16.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^2.3.1",
+    "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "npm": "^6.1.0",
-    "proptypes": "^1.1.0",
+    "axios": "^0.16.0",
+    "prop-types": "^15.5.4",
     "query-string": "^6.1.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-router-dom": "^4.3.1"
+    "react": "^16.0.0-alpha.5",
+    "react-dom": "^16.0.0-alpha.5",
+    "react-router-dom": "^4.0.0"
   }
 }
